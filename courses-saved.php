@@ -13,7 +13,7 @@ $name = $_POST['name'];
 $teacher = ($_POST['teacher']);
 $time = $_POST['time'];
 
-
+//  validating to make sure that the user dont send the inappropriate info
 if (empty($code)) {
     $ok = true;
 }

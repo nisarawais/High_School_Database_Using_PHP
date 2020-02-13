@@ -17,7 +17,7 @@
             $cmd = $db->prepare($sql);
             $cmd->execute();
             $courses = $cmd->fetchAll();
-
+//choosing the the name of the course from option lists
             foreach ($courses as $data)
             {
                 echo "<option>".$data['name']."</option>";

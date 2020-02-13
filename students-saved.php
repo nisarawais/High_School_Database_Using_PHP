@@ -15,6 +15,8 @@ $gender = $_POST['gender'];
 $grade = $_POST('grade');
 
 
+// validating to make sure that user didnt send off the inappropriate stuff
+
 if (empty($student_id)) {
     if($student_id >0)
     {

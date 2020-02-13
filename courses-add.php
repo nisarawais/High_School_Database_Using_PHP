@@ -24,6 +24,7 @@
         <label for = "time">Time:  </label>
         <input name = "time" id = "time"/>
     </fieldset>
+    <!--saving the data-->
     <button>Save</button>
 </form>
 </body>

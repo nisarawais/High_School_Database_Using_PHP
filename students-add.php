@@ -34,6 +34,7 @@
         <option>Junior</option>
         <option>Senior</option>
     </fieldset>
+    // send it off to the database
     <button>Save</button>
 </form>
 </body>
