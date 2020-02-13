@@ -18,7 +18,7 @@
             $cmd->execute();
             $courses = $cmd->fetchAll();
 
-            foreach ($courses as $data)
+            foreach ($students as $data)
             {
                 echo "<option>".$data['student_id']."</option>";
             }
