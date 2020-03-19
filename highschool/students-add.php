@@ -22,19 +22,21 @@
     </fieldset>
     <fieldset>
         <label for = "gender">Gender: </label>
-        <select name = "gender" id = "gender"/>
+        <select name = "gender" id = "gender">
         <option>M</option>
         <option>F</option>
+        </select>
     </fieldset>
     <fieldset>
         <label for = "grade">Grade: </label>
-        <select name = "grade" id = "grade"/>
+        <select name = "grade" id = "grade">
         <option>Freshman</option>
         <option>Sophomore</option>
         <option>Junior</option>
         <option>Senior</option>
+        </select>
     </fieldset>
-    // send it off to the database
+    <!-- send it off to the database-->
     <button>Save</button>
 </form>
 </body>

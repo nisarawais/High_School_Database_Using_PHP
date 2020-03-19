@@ -13,14 +13,14 @@
             //connect
             $db = new PDO('mysql:host=172.31.22.43;dbname=Awais1110642', 'Awais1110642', 'flA8Dz-xDy');
 
-            $sql = "SELECT name FROM courses";
+            $sql = "SELECT code FROM courses";
             $cmd = $db->prepare($sql);
             $cmd->execute();
             $courses = $cmd->fetchAll();
             //choosing the the name of the course from option lists
             foreach ($courses as $data)
             {
-                echo "<option>".$data['name']."</option>";
+                echo "<option>".$data['code']."</option>";
             }
             //disconnect
             $db = null;
