@@ -7,9 +7,14 @@
 </head>
 <body>
 <header>
-<h1>Awais High School for the Deaf</h1>
-<h2><?php echo $title;?></h2>
+    <nav>
+        <a class = "brand" href="index.php">Awais High School for the Deaf</a>
+        <a href="course-list.php" >Courses</a>
+        <a href="student-list.php">Students</a>
+        <a href="sign-up.php">Sign-Up</a>
+        <a href="log-in.php">Log-In</a>
+    </nav>
 </header>
-    
+    <h1><?php echo $title;?></h1>
 </body>
 </html>

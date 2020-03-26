@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Students Dropdown List</title>
-</head>
-<body>
+<?php
+    //setting up a title for this page
+    $title = "Student Dropdown";
+    require_once('header.php');
+?>
 <form method = "post" action = "student-detail.php">
     <fieldset>
         <label for = "student_id">Select Student</label>

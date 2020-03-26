@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Course Saved</title>
-</head>
-<body>
-
+<?php
+    //setting up a title for this page
+    $title = "Course Saved";
+    require_once('header.php');
+?>
 <?php
 
 $code = ($_POST['code']);
@@ -68,7 +65,7 @@ if ($ok) {
 
 // show message to user
     echo '<h2 class="alert alert-success">Course Saved</h2>';
-    header('location:courses-list.php');
+    header('location:course-list.php');
 }
 
 ?>

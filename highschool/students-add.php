@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add New Course</title>
-    <h1>Add New Course</h1>
-</head>
-<body>
+<?php
+    //setting up a title for this page
+    $title = "Add Student";
+    require_once('header.php');
+?>
 <!--this code below this line will directed to the another site where the user will be informed that the data is been stored into the database-->
 <form action = "students-saved.php" method="post">
     <fieldset>

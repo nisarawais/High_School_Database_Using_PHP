@@ -1,13 +1,8 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses Detail</title>
-</head>
-<body>
-<header>
-    <h1>Course Detail</h1>
-</header>
+<?php
+    //setting up a title for this page
+    $title = "Course Detail";
+    require_once('header.php');
+?>
     <?php
         
         $code = $_POST['code'];

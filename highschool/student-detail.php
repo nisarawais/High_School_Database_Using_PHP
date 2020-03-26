@@ -1,13 +1,8 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Detail</title>
-</head>
-<body>
-    <header>
-        <h1>Student Detail </h1>
-    </header>
+<?php
+    //setting up a title for this page
+    $title = "Student Detail";
+    require_once('header.php');
+?>
     <?php
         // store the students id number in the variable
         $student_id = $_POST['student_id'];

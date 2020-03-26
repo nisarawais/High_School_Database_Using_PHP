@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Student List</title>
-</head>
-<body>
+<?php
+    //setting up a title for this page
+    $title = "Student List";
+    require_once('header.php');
+?>
 <?php
 //connected
 $db = new PDO('mysql:host=172.31.22.43;dbname=Awais1110642', 'Awais1110642', 'flA8Dz-xDy');

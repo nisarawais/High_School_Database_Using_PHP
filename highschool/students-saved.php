@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Student Saved</title>
-</head>
-<body>
-
+<?php
+    //setting up a title for this page
+    $title = "Student Saved";
+    require_once('header.php');
+?>
 <?php
 
 $student_id = ($_POST['student_id']);
