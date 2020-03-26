@@ -7,7 +7,7 @@
 <body>
 <form method = "post" action = "student-detail.php">
     <fieldset>
-        <label for = "student_id">Select student</label>
+        <label for = "student_id">Select Student</label>
         <select name = "student_id" id = "student_id">
             <?php
             //connect

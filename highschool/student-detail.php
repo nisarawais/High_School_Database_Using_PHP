@@ -19,6 +19,7 @@
             // set up the query and fetch the chosen student
             $sql = "SELECT * FROM students WHERE student_id = :student_id";
             $cmd = $db->prepare($sql);
+            $cmd->bindParam(':student_id', $student_id, PDO::PARAM_STR, 50);
             $cmd->execute();
             $student = $cmd->fetch();
 

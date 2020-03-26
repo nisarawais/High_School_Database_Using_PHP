@@ -5,10 +5,10 @@
     <title>Courses Dropdown List</title>
 </head>
 <body>
-<form method = "post" action = "course-list.php">
+<form method = "post" action = "courses-detail.php">
     <fieldset>
-        <label for = "name">Select Course</label>
-        <select name = "name" id = "name">
+        <label for = "code">Select Course</label>
+        <select name = "code" id = "code">
             <?php
             //connect
             $db = new PDO('mysql:host=172.31.22.43;dbname=Awais1110642', 'Awais1110642', 'flA8Dz-xDy');
