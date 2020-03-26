@@ -9,8 +9,8 @@
         <select name = "code" id = "code">
             <?php
             //connect
-            $db = new PDO('mysql:host=172.31.22.43;dbname=Awais1110642', 'Awais1110642', 'flA8Dz-xDy');
-
+            require_once 'db.php';
+            
             $sql = "SELECT code FROM courses";
             $cmd = $db->prepare($sql);
             $cmd->execute();

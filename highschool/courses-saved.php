@@ -47,7 +47,7 @@ if (!empty($time)) {
 
 if ($ok) {
     // connect to db
-    $db = new PDO('mysql:host=172.31.22.43;dbname=Awais1110642', 'Awais1110642', 'flA8Dz-xDy');
+    require_once 'db.php';
 
     $sql = "INSERT INTO courses (code, name, teacher, time) VALUES (:code, :name, :teacher, :time);";
 
@@ -63,8 +63,6 @@ if ($ok) {
 // disconnect
     $db = null;
 
-// show message to user
-    echo '<h2 class="alert alert-success">Course Saved</h2>';
     header('location:course-list.php');
 }
 

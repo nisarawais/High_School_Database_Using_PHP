@@ -9,8 +9,7 @@
 
         try {
             // connect
-             $db = new PDO('mysql:host=172.31.22.43;dbname=Awais1110642', 'Awais1110642', 'flA8Dz-xDy');
-
+              require_once('db.php');
             // setting up the query to get the selected course code from the dropdown
             $sql = "SELECT * FROM courses WHERE code = :code";
             $cmd = $db->prepare($sql);

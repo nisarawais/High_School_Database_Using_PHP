@@ -9,8 +9,8 @@
         <select name = "student_id" id = "student_id">
             <?php
             //connect
-            $db = new PDO('mysql:host=172.31.22.43;dbname=Awais1110642', 'Awais1110642', 'flA8Dz-xDy');
-
+            require_once 'db.php';
+            
             $sql = "SELECT student_id FROM students";
             $cmd = $db->prepare($sql);
             $cmd->execute();

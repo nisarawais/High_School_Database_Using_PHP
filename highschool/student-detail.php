@@ -9,8 +9,7 @@
 
         try{
             // connect
-            $db = new PDO('mysql:host=172.31.22.43;dbname=Awais1110642', 'Awais1110642', 'flA8Dz-xDy');
-
+            require_once 'db.php';
             // set up the query and fetch the chosen student
             $sql = "SELECT * FROM students WHERE student_id = :student_id";
             $cmd = $db->prepare($sql);
