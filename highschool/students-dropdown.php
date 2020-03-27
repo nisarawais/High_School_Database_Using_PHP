@@ -2,6 +2,12 @@
     //setting up a title for this page
     $title = "Student Dropdown";
     require_once('header.php');
+
+    // authiencation check
+    session_start();
+
+    //make this only available to the log-in user
+    require_once 'auth.php';
 ?>
 <form method = "post" action = "student-detail.php">
     <fieldset>

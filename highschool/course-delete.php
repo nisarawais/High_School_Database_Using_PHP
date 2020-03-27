@@ -5,8 +5,13 @@
 ?>
 <?php
 
-// get the course code from the url 
+// authiencation check
+session_start();
 
+//make this only available to the log-in user
+require_once 'auth.php';
+
+// get the course code from the url 
 $code = $_GET['code'];
 
 try {

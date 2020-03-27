@@ -1,9 +1,12 @@
 <?php
+//make this only available to the log-in user
+require_once 'auth.php';
+?>
+<?php
     //setting up a title for this page
     $title = "Add Course";
     require_once('header.php');
 ?>
-
 <!--this code below this line will directed to the another site where the user will be informed that the data is been stored into the database-->
 <form action = "courses-saved.php" method="post">
     <fieldset>

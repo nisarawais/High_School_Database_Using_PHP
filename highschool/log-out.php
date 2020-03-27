@@ -3,3 +3,12 @@
     $title = "Log-Out";
     require_once('header.php');
 ?>
+
+<?php
+//logging out
+session_start(); 
+session_unset(); 
+session_destroy(); 
+// direct backto log in
+header('location:log-in.php');
+?>

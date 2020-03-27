@@ -5,6 +5,13 @@
 ?>
 <?php
 
+// authiencation check
+session_start();
+
+//make this only available to the log-in user
+require_once 'auth.php';
+
+//storing new data into the variables
 $code = ($_POST['code']);
 $name = $_POST['name'];
 $teacher = ($_POST['teacher']);

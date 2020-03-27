@@ -4,6 +4,11 @@
     require_once('header.php');
 ?>
     <?php
+        // authiencation check
+        session_start();
+
+        //make this only available to the log-in user
+        require_once 'auth.php';
         
         $code = $_POST['code'];
 

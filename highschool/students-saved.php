@@ -4,7 +4,13 @@
     require_once('header.php');
 ?>
 <?php
+// authiencation check
+session_start();
 
+//make this only available to the log-in user
+require_once 'auth.php';
+
+//storing new data into the variables
 $student_id = ($_POST['student_id']);
 $first_name = $_POST['first_name'];
 $last_name = ($_POST['last_name']);

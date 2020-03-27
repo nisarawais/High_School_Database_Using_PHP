@@ -15,7 +15,9 @@ $cmd->execute();
 $courses = $cmd->fetchAll();
 //making a table
 echo "<table border='1'><thead><th>Course Code</th><th>Course Name</th><th>Teacher</th><th>Time</th></thead>";
-foreach ($courses as $data) {
+foreach ($courses as $data) 
+{
+    //hide the edit option since the user is not logged in
     if (!empty($_SESSION['userId'])) {
     echo "<tr><td> <a href='course-edit.php?code='" . $data['code'] . ">" . $data['code'] . "</a></td><td>" . $data['name'] . "</td><td>" . $data['teacher']."</td><td>" .$data['time'] . "</td></tr>";
      }

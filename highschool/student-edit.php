@@ -5,6 +5,12 @@
 ?>
 
 <?php
+    // authiencation check
+    session_start();
+
+    //make this only available to the log-in user
+    require_once 'auth.php';
+
     //declare the variables for each of the feild
     $student_id = null;
     $first_name = null;

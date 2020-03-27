@@ -5,8 +5,13 @@
 ?>
 <?php
 
-// get the student ID from the url 
+// authiencation check
+session_start();
 
+//make this only available to the log-in user
+require_once 'auth.php';
+
+// get the student ID from the url 
 $student_id = $_GET['student_id'];
 
 try {

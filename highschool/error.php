@@ -4,4 +4,5 @@
     require_once('header.php');
 ?>
 
-<p>Oooooooooooops! We cannot find what you are looking for. Please use our link to navigate the website</p>
+<p>Oooooooooooops! There is something wrong with this site. Please try again at later time. If the problem still persist, please email me at aanisar@lakeheadu.ca so I can look at it and try to fix it. Thank you for your co-operation.</p>
+
