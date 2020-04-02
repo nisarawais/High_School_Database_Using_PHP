@@ -14,7 +14,8 @@ $first_name = $_POST['first_name'];
 $last_name = ($_POST['last_name']);
 $gender = $_POST['gender'];
 $grade = $_POST('grade');
-
+$photo = $_FILES['photo'];
+$photoName = null;
 
 // validating to make sure that user didnt send off the inappropriate stuff
 //if there is no existing data 
@@ -56,14 +57,28 @@ if (!empty($grade)) {
 else{
     $ok = false;
 }
+
+if(!empty($photo['temp_name'])){
+    $photoName= $photo['name'];
+    $temp_name= $photo['temp_name'];
+    $type = mime_content_type($temp_name);
+
+    if($type != 'image/jpg' && $type != 'image/png'){
+        echo 'Photo must be in .jpg or .png file';
+        $ok = false;
+        exit();
+    }
+    $photoName = session_id() .'-'.$photoName;
+    move_uploaded_file($temp_name,"image/students/$photoName");
+}
 if ($ok == true) {
     // connect to db
     require_once 'db.php';
     if(empty($_GET['student_id'])){
-        $sql = "INSERT INTO students (student_id, first_name, last_name, gender,grade) VALUES (:student_id, :first_name, :last_name, :gender, :grade);";
+        $sql = "INSERT INTO students (student_id, first_name, last_name, gender,grade,photo) VALUES (:student_id, :first_name, :last_name, :gender, :grade, :photo);";
     }
     else{
-        $sql = "UPDATE students SET `first_name` = ':first_name', `last_name` = ':last_name', `gender` = ':gender', `grade` = ':grade' WHERE (`student_id` = ':student_id');";
+        $sql = "UPDATE students SET `first_name` = ':first_name', `last_name` = ':last_name', `gender` = ':gender', `grade` = ':grade', `photo` = ':photo' WHERE (`student_id` = ':student_id');";
 
     }
     $cmd = $db->prepare($sql);
@@ -72,6 +87,7 @@ if ($ok == true) {
     $cmd->bindParam(':last_name',$last_name, PDO::PARAM_STR,45);
     $cmd->bindParam(':gender',$gender, PDO::PARAM_STR,1);
     $cmd->bindParam(':grade',$grade, PDO::PARAM_STR);
+    $cmd ->bindParam(':photo',$photoName,PDO::PARAM_STR,100);
 
     // try to send / save the data
     $cmd->execute();
@@ -79,7 +95,7 @@ if ($ok == true) {
 // disconnect
     $db = null;
 
-    header('location:student-list.php');
+    // header('location:student-list.php');
 }
 
 ?>

@@ -13,6 +13,7 @@
     $last_name = null;
     $gender = null;
     $grade = null;
+    $photo = null;
     
     // edit if its not empty
     if (!empty($_GET['student_id'])) {
@@ -32,15 +33,15 @@
             $first_name = $students['first_name'];
             $last_name = $students['last_name'];
             $gender = $students['gender'];
-            $grade = $student_id['grade'];
-
+            $grade = $students['grade'];
+            $photo = $students['photo'];
 
             //disconnect
             $db = null;
     }
     ?>
     <!--this code below this line will directed to the another site where the user will be informed that the data is been stored into the database-->
-<form action = "students-saved.php" method="post">
+<form action = "students-saved.php" method="post" enctype = "multipart/form-data">
     <fieldset>
         <label for = "student_id">Student ID:  </label>
         <?php
@@ -77,6 +78,17 @@
         <option>Senior</option>
         </select>
     </fieldset>
+    <fieldset>
+    <label for = "photo">Photo: </label>
+    <input name = "photo" id = "photo" type="file">
+    </fieldset>
+    <?php
+    //display the student picture 
+    if(!empty($photo))
+    {
+        echo '<img src= "image/students/' .  $photo. '" alt= "Student Picture"/>';
+    }
+    ?>
     <!-- send it off to the database-->
     <button>Save</button>
 </form>
