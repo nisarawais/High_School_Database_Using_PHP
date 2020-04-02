@@ -15,6 +15,7 @@ $cmd = $db->prepare($query);
 $cmd->execute();
 $courses = $cmd->fetchAll();
 //making a table
+
 echo "<table border='1'><thead><th>Course Code</th><th>Course Name</th><th>Teacher</th><th>Time</th></thead>";
 foreach ($courses as $data) 
 {
@@ -35,6 +36,7 @@ foreach ($courses as $data)
     echo "</tr>";
 }
 echo "</table>";
+
 //disconnected
 $db = null;
 }

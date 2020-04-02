@@ -1,0 +1,37 @@
+body{
+    background-color: rgba(36, 122, 172, 0.445);
+}
+
+#thumb{
+    width: 1in;
+    height: 1in;
+}
+.brand{
+    font-size: 3em;
+    color:red;
+}
+
+#navfont{
+    font-size: 2em;
+    color: seagreen;
+}
+#nav{
+    word-spacing: 5px;
+    background-color: white;
+    text-decoration:none;
+}
+
+table{
+    text-align: center;
+    color:white;
+    background-color: black;
+}
+h1{
+    color:rgb(53, 80, 0);
+    font-size: 4em;
+}
+
+.center
+{
+    display: inline-block
+}
