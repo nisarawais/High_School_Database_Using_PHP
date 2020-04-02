@@ -16,7 +16,7 @@ foreach ($students as $data) {
     echo "<tr>";
     //hide the edit option since the user is not logged in
     if (!empty($_SESSION['userId'])) {
-    echo "<td><a href='student-detail.php?student_id='" . $data['student_id'] . ">" . $data['student_id'] . "</a></td><td>" . $data['first_name'] . "</td><td>" . $data['last_name']. "</td><td>".$data['gender'] . "</td><td>" . $data['grade'] . "</td>"; 
+    echo '<td><a href="student-detail.php?student_id=' . $data['student_id'] . '">' . $data['student_id'] . '</a></td><td>' . $data['first_name'] . '</td><td>' . $data['last_name']. '</td><td>' . $data['gender'] . '</td><td>'. $data['grade'] . '</td>';
     }
     else{
         echo "<td>" . $data['student_id'] ."</td><td>" . $data['first_name'] . "</td><td>" . $data['last_name']. "</td><td>".$data['gender'] . "</td><td>" . $data['grade'] . "</td>";

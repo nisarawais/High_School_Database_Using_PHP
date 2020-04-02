@@ -22,7 +22,7 @@ foreach ($courses as $data)
 
     //hide the edit option since the user is not logged in
     if (!empty($_SESSION['userId'])) {
-    echo "<td> <a href='course-edit.php?code='" . $data['code'] . ">" . $data['code'] . "</a></td><td>" . $data['name'] . "</td><td>" . $data['teacher']."</td><td>" .$data['time'] . "</td>";
+    echo '<td><a href="courses-detail.php?code=' . $data['code'] . '">' . $data['code'] . '</a></td><td>'. $data['teacher'] . '</td><td>' . $data['time'] . '</td>';
      }
      else{
               echo "<td>" . $data['code']."</td><td>" . $data['name'] . "</td><td>" . $data['teacher']."</td><td>" .$data['time'] . "</td>";

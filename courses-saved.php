@@ -7,7 +7,7 @@
 
 
 //make this only available to the log-in user
-require_once 'auth.php';
+require_once 'authorization.php';
 
 //storing new data into the variables
 $code = ($_POST['code']);
@@ -16,7 +16,8 @@ $teacher = ($_POST['teacher']);
 $time = $_POST['time'];
 
 //  validating to make sure that the user dont send the inappropriate info
-if (empty($code)) {
+if(empty($_GET['code'])){
+if (!empty($code)) {
     $ok = true;
 }
 else {
@@ -29,6 +30,7 @@ if (!empty($name)) {
 else{
     echo 'you need to type the name<br />';
     $ok = false;
+}
 }
 
 if (!empty($teacher)) {
@@ -49,13 +51,20 @@ if (!empty($time)) {
     }
 
 }
+else{
+    echo 'you need to type the time in the appropriate format (00:00AM/PM) <br />';
+    $ok = false;
+}
 
-if ($ok) {
+if ($ok == true) {
     // connect to db
     require_once 'db.php';
-
+    if(empty($_GET['code'])){
     $sql = "INSERT INTO courses (code, name, teacher, time) VALUES (:code, :name, :teacher, :time);";
-
+    }
+    else {
+    $sql = "UPDATE courses SET `teacher` = ':teacher',`time` = ':time' WHERE (`code` = ':code');";
+    }
     $cmd = $db->prepare($sql);
     $cmd->bindParam(':code',$code, PDO::PARAM_STR,10);
     $cmd->bindParam(':name',$name, PDO::PARAM_STR,45);

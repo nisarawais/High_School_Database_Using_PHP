@@ -6,7 +6,7 @@
 <?php
 
 //make this only available to the log-in user
-require_once 'auth.php';
+require_once 'authorization.php';
 
 //storing new data into the variables
 $student_id = ($_POST['student_id']);
@@ -17,16 +17,18 @@ $grade = $_POST('grade');
 
 
 // validating to make sure that user didnt send off the inappropriate stuff
-
-if (empty($student_id)) {
+//if there is no existing data 
+if(empty($_GET['student_id'])){
+if (!empty($student_id)) {
     if($student_id >0)
     {
-        echo 'You need to type the student id number<br />';
-        $ok = false;
+        $ok = true;
  }
 }
 else {
-    $ok = true;
+    echo 'You need to type the student id number<br />';
+    $ok = false;    
+}
 }
 if (!empty($first_name)) {
     $ok = true;
@@ -54,12 +56,16 @@ if (!empty($grade)) {
 else{
     $ok = false;
 }
-if ($ok) {
+if ($ok == true) {
     // connect to db
     require_once 'db.php';
+    if(empty($_GET['student_id'])){
+        $sql = "INSERT INTO students (student_id, first_name, last_name, gender,grade) VALUES (:student_id, :first_name, :last_name, :gender, :grade);";
+    }
+    else{
+        $sql = "UPDATE students SET `first_name` = ':first_name', `last_name` = ':last_name', `gender` = ':gender', `grade` = ':grade' WHERE (`student_id` = ':student_id');";
 
-    $sql = "INSERT INTO students (student_id, first_name, last_name, gender,grade) VALUES (:student_id, :first_name, :tlast_name, :gender, :grade);";
-
+    }
     $cmd = $db->prepare($sql);
     $cmd->bindParam(':student_id',$student_id, PDO::PARAM_INT);
     $cmd->bindParam(':first_name',$first_name, PDO::PARAM_STR,45);
