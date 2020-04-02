@@ -1,7 +1,45 @@
 <?php
     //setting up a title for this page
-    $title = "Course Detail";
+    $title = "Student Detail";
     require_once('header.php');
+?>
+
+<?php
+
+    //make this only available to the log-in user
+    require_once 'auth.php';
+
+    //declare the variables for each of the feild
+    $student_id = null;
+    $first_name = null;
+    $last_name = null;
+    $gender = null;
+    $grade = null;
+
+    //if there is info passed in the url, we are edditing
+    if(!empty($_GET['student_id'])){
+        $student_id= $_GET['student_id'];
+
+     // connect to the server
+    require_once 'db.php';
+
+    //get the selected student
+
+    $sql = "SELECT * FROM students WHERE student_id = :student_id";
+    $cmd = $db->prepare($sql);
+    $cmd->bindParam(':student_id', $student_id, PDO::PARAM_INT);
+    $cmd->execute();
+
+    //getting all the info from the chosen student
+    $students = $cmd->fetch();
+    $first_name= $students['first_name'];
+    $last_name = $students['last_name'];
+    $gender = $students['gender'];
+    $grade = $students['grade'];
+
+    // disconnect
+    $db = null;
+    }
 ?>
     <?php
 

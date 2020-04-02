@@ -27,7 +27,7 @@
 
     $sql = "SELECT * FROM students WHERE student_id = :student_id";
     $cmd = $db->prepare($sql);
-    $cmd->bindParam(':student_id', $student_id, PDO::PARAM_STR, 50);
+    $cmd->bindParam(':student_id', $student_id, PDO::PARAM_INT);
     $cmd->execute();
 
     //getting all the info from the chosen student

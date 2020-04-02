@@ -6,7 +6,7 @@
 <?php
 
 //make this only available to the log-in user
-require_once 'auth.php';
+require_once 'authorization.php';
 
 // get the course code from the url 
 $code = $_GET['code'];

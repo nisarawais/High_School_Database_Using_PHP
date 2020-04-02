@@ -6,9 +6,9 @@
 <?php
 
 //make this only available to the log-in user
-require_once 'auth.php';
+require_once 'authorization.php';
 
-// get the student ID from the url 
+// get the student_id from the url 
 $student_id = $_GET['student_id'];
 
 try {
@@ -17,7 +17,7 @@ try {
 
     $sql = "DELETE FROM students WHERE student_id = :student_id";
     $cmd = $db->prepare($sql);
-    $cmd->bindParam(':student_id', $student_id, PDO::PARAM_STR, 50);
+    $cmd->bindParam(':student_id', $student_id, PDO::PARAM_INT);
 
     //delete
     $cmd->execute();
