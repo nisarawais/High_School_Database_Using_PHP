@@ -5,6 +5,7 @@
 ?>
 
 <?php
+try{
 // connecting to the database
     require_once 'db.php';
 
@@ -36,6 +37,11 @@ foreach ($courses as $data)
 echo "</table>";
 //disconnected
 $db = null;
+}
+catch (Exception $e) {
+    header('location:error.php');
+    exit();
+ }
 ?>
 </body>
 </html>

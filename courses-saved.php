@@ -57,6 +57,7 @@ else{
 }
 
 if ($ok == true) {
+    try{
     // connect to db
     require_once 'db.php';
     if(empty($_GET['code'])){
@@ -76,10 +77,13 @@ if ($ok == true) {
 
 // disconnect
     $db = null;
-
     header('location:course-list.php');
 }
-
+catch (Exception $e) {
+    header('location:error.php');
+    exit();
+ }
+}
 ?>
 </body>
 </html>

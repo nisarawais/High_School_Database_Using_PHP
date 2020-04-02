@@ -3,7 +3,9 @@
     $title = "Student List";
     require_once('header.php');
 ?>
+
 <?php
+try{
 //connected
 require_once 'db.php';
 $query = "select * from students;";
@@ -36,6 +38,12 @@ foreach ($students as $data) {
 echo "</table>";
 /// disconnected
 $db = null;
+}
+
+catch (Exception $e) {
+    header('location:error.php');
+    exit();
+ }
 ?>
 </body>
 </html>

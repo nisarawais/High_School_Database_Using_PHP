@@ -12,8 +12,8 @@ $password = $_POST['password'];
 $name = null;
 
 //if this page is not broken
-// try {
-    require_once('db.php');
+try {
+    require_once 'db.php';
     //get the email that is been submitted
     $sql = "SELECT userId, name, password FROM users WHERE email = :email";
 
@@ -41,10 +41,10 @@ $name = null;
 
     //disconnect from the database
     $db = null;
-// }
-// // will redirectto the error page if this page is broken
-// catch (Exception $e) {
-//     header('location:error.php');
-//     exit();
-// }
-// ?>
+}
+// will redirectto the error page if this page is broken
+catch (Exception $e) {
+    header('location:error.php');
+    exit();
+}
+  ?>

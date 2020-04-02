@@ -72,6 +72,7 @@ if(!empty($photo['temp_name'])){
     move_uploaded_file($temp_name,"image/students/$photoName");
 }
 if ($ok == true) {
+    try{
     // connect to db
     require_once 'db.php';
     if(empty($_GET['student_id'])){
@@ -94,7 +95,11 @@ if ($ok == true) {
 
 // disconnect
     $db = null;
-
+    }
+    catch (Exception $e) {
+        header('location:error.php');
+        exit();
+     }
     // header('location:student-list.php');
 }
 

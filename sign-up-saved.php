@@ -5,6 +5,7 @@
 ?>
 
 <?php
+
     // store the variables that was been posted from the sign-up page
     $name = $_POST["name"];
     $email = $_POST["email"];

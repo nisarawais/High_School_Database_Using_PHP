@@ -21,7 +21,7 @@
         // store the students id number in the variable
         $student_id = $_GET['student_id'];
 
-    
+    try{
             // connect
             require_once 'db.php';
             // set up the query and fetch the chosen student
@@ -38,6 +38,12 @@
 
             //disconnect
             $db = null;
+
+    }
+    catch (Exception $e) {
+        header('location:error.php');
+        exit();
+     }
     }
     ?>
     <!--this code below this line will directed to the another site where the user will be informed that the data is been stored into the database-->
